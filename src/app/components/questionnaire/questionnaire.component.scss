@@ -1,0 +1,36 @@
+@import "src/styles/mixins";
+@import "src/styles/variable";
+
+.questionnaire {
+  p,
+  label {
+    @include user-select-none;
+  }
+}
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.btn-container {
+  margin-top: 1rem;
+}
+
+.score {
+  width: 70%;
+  margin: 2rem auto;
+  padding: 10px;
+
+  &.poor {
+    background: $primary-red;
+  }
+
+  &.average {
+    background: $primary-yellow;
+  }
+
+  &.good {
+    background: $secondary-green;
+  }
+}

@@ -1,0 +1,11 @@
+<div class="container">
+  <h1 class="text-center">RESULTS</h1>
+
+  <div class="inner">
+    <app-questionnaire
+      *ngIf="userInputs.length > 0"
+      [questionnaire]="userInputs"
+      [isResults]="true"
+    ></app-questionnaire>
+  </div>
+</div>

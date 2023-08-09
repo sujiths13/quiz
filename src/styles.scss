@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+@import "src/styles/variable";
+@import "src/styles/mixins";
+@import "src/styles/flex";
+@import "src/styles/button";
+@import "src/styles/select";
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+}
+
+p,
+span {
+  font-size: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.container {
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+.inner {
+  max-width: 655px;
+  margin: 0 auto;
+}

@@ -1,0 +1,59 @@
+@import "src/styles/mixins";
+@import "src/styles/variable";
+
+.chip {
+  border: 1px solid $primary-green;
+  border-radius: 4px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  color: $primary-green;
+  background: $white;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+
+  label {
+    cursor: pointer;
+    z-index: 1;
+    display: block;
+    padding: 5px 8px;
+    color: $primary-green;
+    @include user-select-none;
+  }
+
+  input[type="radio"] {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: 0;
+    margin: 0;
+    visibility: hidden;
+
+    &:checked + label {
+      background: $primary-green;
+      color: $white;
+    }
+  }
+
+  &:hover label {
+    background: $primary-green;
+    color: $white;
+  }
+
+  &.active label,
+  &.invalid label {
+    color: $white;
+  }
+
+  &.active label {
+    background-color: $primary-green;
+  }
+
+  &.invalid label {
+    background-color: $primary-red;
+  }
+}

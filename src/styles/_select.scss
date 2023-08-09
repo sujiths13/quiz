@@ -1,0 +1,7 @@
+@import "./mixins";
+
+.select {
+  @include input-base;
+  @include user-select-none;
+  min-width: 20rem;
+}

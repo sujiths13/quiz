@@ -1,0 +1,39 @@
+<div class="d-flex justify-content-center">
+  <form [formGroup]="categorySelectionForm" (ngSubmit)="onSubmit()">
+    <select
+      class="select"
+      name="categorySelect"
+      id="categorySelect"
+      title="Category Select"
+      formControlName="category"
+    >
+      <option value="">Select a category</option>
+      <option
+        *ngFor="let category of categories$ | async"
+        [value]="category.id"
+      >
+        {{ category?.name }}
+      </option>
+    </select>
+
+    <select
+      class="select"
+      name="difficultySelect"
+      id="difficultySelect"
+      title="Difficulty Select"
+      formControlName="difficulty"
+    >
+      <option value="">Select difficulty</option>
+      <option
+        *ngFor="let level of difficultyLevel | keyvalue: originalOrder"
+        [value]="level.key"
+      >
+        {{ level.value }}
+      </option>
+    </select>
+
+    <button class="btn btn-secondary" type="submit" id="createBtn">
+      Create
+    </button>
+  </form>
+</div>

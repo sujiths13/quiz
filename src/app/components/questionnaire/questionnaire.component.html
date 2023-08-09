@@ -1,0 +1,33 @@
+<div
+  *ngFor="let quiz of questionnaire; let questionIndex = index"
+  class="questionnaire"
+>
+  <p [innerHTML]="quiz.question"></p>
+  <div class="chip-list">
+    <app-chip
+      *ngFor="let answer of quiz.answers; let answerIndex = index"
+      [id]="getRadioId(questionIndex, answerIndex)"
+      [name]="quiz.question"
+      [value]="answer"
+      [selected]="
+        (answer === quiz.answer && answer === quiz.correct_answer) ||
+        (isResults && answer === quiz.correct_answer)
+      "
+      [invalid]="answer === quiz.answer && answer !== quiz.correct_answer"
+      [disabled]="isResults"
+      (selection)="selectAnswer($event, quiz)"
+    >
+      <span [innerHTML]="answer"></span>
+    </app-chip>
+  </div>
+</div>
+
+<div class="score text-center" *ngIf="isResults" appScoreBoard [score]="score">
+  You scored {{ score }} out of {{ questionnaire.length }}
+</div>
+
+<div class="btn-container text-center" *ngIf="allQuestionsAnswered">
+  <button class="btn btn-primary btn-large" type="button" (click)="onSubmit()">
+    {{ isResults ? "Create a new quiz" : "Submit" }}
+  </button>
+</div>

@@ -1,0 +1,24 @@
+@import "./mixins";
+
+.btn {
+  @include input-base;
+  @include user-select-none;
+
+  &-primary {
+    background: $grey;
+    color: $white;
+
+    &:hover {
+      background: $dark-grey;
+    }
+  }
+
+  &-secondary {
+    background: $white;
+  }
+
+  &-large {
+    min-width: 30rem;
+    padding: 10px;
+  }
+}

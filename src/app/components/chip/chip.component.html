@@ -1,0 +1,12 @@
+<div class="chip" [ngClass]="{ active: selected, invalid: invalid }">
+  <input
+    type="radio"
+    [id]="id"
+    [name]="name"
+    [value]="value"
+    (click)="toggle($event)"
+  />
+  <label [for]="id" [attr.aria-label]="value">
+    <ng-content></ng-content>
+  </label>
+</div>

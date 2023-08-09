@@ -1,0 +1,14 @@
+<div class="container">
+  <h1 class="text-center">QUIZ MAKER</h1>
+
+  <app-category-selection
+    (formSubmit)="create($event)"
+  ></app-category-selection>
+
+  <div class="inner" *ngIf="questionnaire$ | async as questionnaire">
+    <app-questionnaire
+      *ngIf="questionnaire.length > 0"
+      [questionnaire]="questionnaire"
+    ></app-questionnaire>
+  </div>
+</div>
